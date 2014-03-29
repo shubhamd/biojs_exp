@@ -1,0 +1,18 @@
+the code is cleaned up using python and the required data is is being output in the form of JSON 
+
+the output data can be found in the /viz folder of the directory 
+
+D3 is not a col library for data cleaning, 
+
+the acceptable formats for D3 are CSV, XML, JSON.
+
+d3 uses method chaining or cascade 
+
+
+d3.select('body') : select first element with name 'body'
+
+d3.select('body').append('ul')  : append unordered list ( returns a selection containing a ul )
+
+d3.select('body').append('ul').selectAll('li') : this returns an array with 0 elements (an empty selection )
+
+d3.select('body').append('ul').selectAll('li').data(data) : matches each data point with the selection , so now we have as many selections as number of data points 

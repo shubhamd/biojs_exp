@@ -3,7 +3,7 @@
 <head>
 <meta charset=utf-8 />
 <title>d3 js beginning</title>
-  <script src="d3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/d3.js" type="text/javascript" charset="utf-8"></script>
   <style type="text/css">
 div{
     background-color: #dd9;
@@ -29,27 +29,35 @@ div{
     <input id='marks'/>	
 <script type="text/javascript">
     
-    	var ar ; 
+    	var ar ;
 
      	document.getElementById('marks').addEventListener('input',function(){
 
-
+            var length=0; 
      		ar = this.value.split(',') ;
      		for (i=0;i<ar.length;i++){
 
      			ar[i] = parseInt(ar[i].trim());
      			ar[i] = (ar[i]/100)*1200 ;
+                if(!isNaN(parseInt(ar[i])))
+                    length++ ; 
 
      		}
 d3.selectAll("div").data(ar).transition().duration(1000).style("width", function(d) {return  d + "px"; });
 
-     	},false);
-		
-  
 
 
-    
-    </script>
+if(length<5){
+    console.log("lenght was "+ length );
+    for (i=length+1;i<=5;i++){
+console.log("i is "+ i);
+        d3.selectAll("#div"+i).data(['1200']).transition().duration(1000).style("width", function(d) {return  d + "px"; });
+    }
+     	}
+         }
 
+        ,false);
+</script>
+<a href= "exp.html" style="text-decoration: none ; float:right; margin-right: 60px ;"> Next Demo</a>
 </body>
 </html>
